@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+    <title>Tentang Kami - Poelang Kos</title>
+    <link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;500;700;800;900&family=Space+Grotesk:wght@400;500;700;800;900&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&display=swap" rel="stylesheet"/>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary": "#FFD600",
+                        "secondary": "#1c3fe7",
+                        "background": "#f9f9f9",
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body class="bg-background text-black selection:bg-primary">
+    <div id="navbar-placeholder"></div>
+    <div id="marquee-placeholder" data-text="POELANG @ YOGYAKARTA • KOST PUTRA EKSKLUSIF • "></div>
+
+    <main class="max-w-[1000px] mx-auto px-6 py-20 pb-40">
+        <!-- Profile Section -->
+        <section class="flex flex-col items-center text-center mb-24">
+            <div class="relative mb-12">
+                <div class="w-48 h-48 md:w-64 md:h-64 rounded-full border-[8px] border-black overflow-hidden neo-shadow-xl bg-primary">
+                    <img class="w-full h-full object-cover transition-all duration-300" src="assets/owner.png" onerror="this.src='https://lh3.googleusercontent.com/aida-public/AB6AXuCYPd0_XBZmOf97zJJhhgNTuIMc-7THmNOKJ27mlIGjFiGPJM89AAdmxuVTHzJZ0NNm8rv3qIop7W2iQMNQbUWz4O0kdvZoeVhaAQpurjH2eG3Fg2vcp0WL6B21TQLtFG3d-tH-uzZm-KyzKnGtbt-tHiGCzEmOmtGwfFdQqF1yLblUuh2jOyZZY7uhu0Z6XOsYea4myJ7IWao1y7bH7sIls6MLtDJY42NhwEUD1H7NHZqH39F__LBG0UEm1rYCM-mSGpKGOzOZavo'"/>
+                </div>
+                <div class="absolute -bottom-4 -right-4 bg-black text-white px-6 py-2 font-black uppercase sticker-rotate-2 border-2 border-black">OWNER</div>
+            </div>
+            
+            <h1 class="text-display-xl mb-6">POELANG PROPERTY</h1>
+            <p class="text-xl md:text-3xl leading-relaxed max-w-2xl font-medium italic">
+                "Poelang bukan sekadar tempat tinggal, tapi rumah kedua bagi kalian yang sedang berjuang di Yogyakarta."
+            </p>
+        </section>
+
+        <!-- Rules Section -->
+        <section class="bg-primary border-4 border-black p-8 md:p-16 neo-shadow-xl mb-24">
+            <h2 class="text-headline-lg md:text-display-xl mb-12 text-center underline decoration-black decoration-[8px]">PERATURAN KOS</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                <div class="flex items-center gap-6 border-b-4 border-black pb-6">
+                    <span class="material-symbols-outlined text-5xl">smoke_free</span>
+                    <span class="font-black uppercase text-sm md:text-xl leading-tight">DILARANG MEROKOK DI DALAM</span>
+                </div>
+                <div class="flex items-center gap-6 border-b-4 border-black pb-6">
+                    <span class="material-symbols-outlined text-5xl">pets</span>
+                    <span class="font-black uppercase text-sm md:text-xl leading-tight">DILARANG MEMBAWA HEWAN</span>
+                </div>
+                <div class="flex items-center gap-6 border-b-4 border-black pb-6">
+                    <span class="material-symbols-outlined text-5xl">schedule</span>
+                    <span class="font-black uppercase text-sm md:text-xl leading-tight">JAM TAMU MAKSIMAL 22:00</span>
+                </div>
+                <div class="flex items-center gap-6 border-b-4 border-black pb-6">
+                    <span class="material-symbols-outlined text-5xl">cleaning_services</span>
+                    <span class="font-black uppercase text-sm md:text-xl leading-tight">JAGA KEBERSIHAN BERSAMA</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Info Grid -->
+        <section id="info" class="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <div class="bg-white border-4 border-black p-10 neo-shadow">
+                <h2 class="text-headline-lg mb-6 italic underline decoration-primary decoration-8">MISI KAMI</h2>
+                <p class="text-lg md:text-xl leading-relaxed font-medium">Menyediakan hunian yang aman, bersih, dan mendukung produktivitas mahasiswa dengan fasilitas modern dan manajemen yang responsif.</p>
+            </div>
+            <div class="bg-secondary text-white border-4 border-black p-10 neo-shadow">
+                <h2 class="text-headline-lg mb-6 italic underline decoration-white decoration-8">LOKASI</h2>
+                <p class="text-xl md:text-2xl leading-relaxed font-black uppercase mb-8">Brontokusuman MG 3/312<br/>Yogyakarta 55153</p>
+                <a href="https://www.google.com/maps/place/Kos+Putra+Poelang+Yogyakarta/@-7.8176781,110.3727517,21z" target="_blank" class="inline-block bg-white text-black px-8 py-3 font-black uppercase border-2 border-black active-press">BUKA GOOGLE MAPS</a>
+            </div>
+        </section>
+    </main>
+
+    <div id="footer-placeholder"></div>
+    <div id="mobile-nav-placeholder"></div>
+    <div id="fab-placeholder"></div>
+
+    <script src="assets/js/components.js"></script>
+</body>
+</html>

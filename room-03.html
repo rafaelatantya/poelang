@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+    <title>Suite Kotabaru - Poelang Kos</title>
+    <link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;500;700;800;900&family=Space+Grotesk:wght@400;500;700;800;900&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&display=swap" rel="stylesheet"/>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary": "#FFD600",
+                        "secondary": "#1c3fe7",
+                        "background": "#f9f9f9",
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="assets/css/main.css">
+    <script src="assets/js/pricing.js"></script>
+    <script src="assets/js/facilities.js"></script>
+</head>
+<body class="bg-background text-black selection:bg-primary" data-room-id="03">
+    <div id="navbar-placeholder"></div>
+    <div id="marquee-placeholder" data-room="01"></div>
+
+    <main class="pb-32">
+        <!-- Gallery -->
+        <section class="relative w-full h-[400px] md:h-[650px] bg-zinc-200 border-y-4 border-black overflow-hidden group">
+            <div class="carousel-track flex h-full transition-transform duration-500 ease-out cursor-grab active:cursor-grabbing" id="carouselTrack"></div>
+            
+            <div class="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-4 z-10">
+                <button onclick="prevSlide()" class="w-14 h-14 bg-white border-4 border-black flex items-center justify-center neo-shadow active-press cursor-pointer">
+                    <span class="material-symbols-outlined text-3xl">chevron_left</span>
+                </button>
+                <button onclick="nextSlide()" class="w-14 h-14 bg-primary border-4 border-black flex items-center justify-center neo-shadow active-press cursor-pointer">
+                    <span class="material-symbols-outlined text-3xl">chevron_right</span>
+                </button>
+            </div>
+
+            <!-- View Full Photo Button -->
+            <button onclick="openModal()" class="absolute top-6 left-6 bg-secondary text-white border-4 border-black px-4 py-2 font-black uppercase text-sm md:text-lg neo-shadow active-press z-10 flex items-center gap-2">
+                <span class="material-symbols-outlined text-xl md:text-2xl">fullscreen</span>
+                <span>LIHAT FULL FOTO</span>
+            </button>
+
+            <div class="absolute top-6 right-6 bg-white border-4 border-black px-6 py-2 font-black text-2xl neo-shadow sticker-rotate-1" id="carouselCounter">
+                1 / 1
+            </div>
+        </section>
+
+        <!-- Full Photo Modal -->
+        <div id="photoModal" class="fixed inset-0 z-[100] bg-black hidden flex-col items-center justify-center p-4">
+            <button onclick="closeModal()" class="absolute top-6 right-6 bg-white border-4 border-black p-3 z-50 neo-shadow active-press">
+                <span class="material-symbols-outlined text-3xl">close</span>
+            </button>
+            
+            <div class="relative w-full max-w-5xl h-[80vh] flex items-center justify-center">
+                <div class="modal-carousel-track flex h-full w-full transition-transform duration-300 ease-out" id="modalTrack"></div>
+            </div>
+
+            <div class="mt-8 flex gap-6">
+                <button onclick="modalPrev()" class="w-16 h-16 bg-white border-4 border-black flex items-center justify-center neo-shadow active-press">
+                    <span class="material-symbols-outlined text-4xl">chevron_left</span>
+                </button>
+                <div class="bg-white border-4 border-black px-8 py-4 font-black text-3xl neo-shadow" id="modalCounter">1 / 1</div>
+                <button onclick="modalNext()" class="w-16 h-16 bg-primary border-4 border-black flex items-center justify-center neo-shadow active-press">
+                    <span class="material-symbols-outlined text-4xl">chevron_right</span>
+                </button>
+            </div>
+        </div>
+
+        <div class="max-w-[1280px] mx-auto px-6 py-16">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                <!-- Info -->
+                <div class="lg:col-span-8">
+                    <h1 class="text-display-xl md:text-display-2xl mb-12">URBAN ATTIC</h1>
+
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 mb-8">
+                        <div class="bg-primary border-4 border-black p-8 neo-shadow active-press">
+                            <span class="font-black text-xs uppercase mb-2 block opacity-60">Per Bulan</span>
+                            <span class="text-headline-lg md:text-display-xl" data-price-type="monthly" data-price-suffix="false"></span>
+                        </div>
+                        <div class="bg-secondary border-4 border-black p-8 text-white neo-shadow active-press">
+                            <span class="font-black text-xs uppercase mb-2 block opacity-60">Status</span>
+                            <span class="text-headline-lg md:text-display-xl">READY</span>
+                        </div>
+                        <div class="bg-white border-4 border-black p-8 neo-shadow active-press">
+                            <span class="font-black text-xs uppercase mb-2 block opacity-60">Jarak UGM</span>
+                            <span class="text-headline-lg md:text-display-xl">5 MIN</span>
+                        </div>
+                    </div>
+
+                    <!-- Short Duration Pricing -->
+                    <div class="bg-black text-white border-4 border-black p-8 neo-shadow mb-16">
+                        <h3 class="font-black uppercase text-xl mb-6 italic underline decoration-primary decoration-4">OPSI DURASI LAIN</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                            <div class="border-2 border-white/20 p-4">
+                                <span class="block text-[10px] uppercase font-bold opacity-50 mb-1">1 Hari</span>
+                                <span class="text-2xl font-black text-primary" data-price-type="daily"></span>
+                            </div>
+                            <div class="border-2 border-white/20 p-4">
+                                <span class="block text-[10px] uppercase font-bold opacity-50 mb-1">1 Minggu</span>
+                                <span class="text-2xl font-black text-primary" data-price-type="weekly"></span>
+                            </div>
+                            <div class="border-2 border-white/20 p-4">
+                                <span class="block text-[10px] uppercase font-bold opacity-50 mb-1">2 Minggu</span>
+                                <span class="text-2xl font-black text-primary" data-price-type="twoWeeks"></span>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- <section class="space-y-10 mb-20">
+                        <h2 class="bg-primary border-4 border-black inline-block px-8 py-3 font-black text-2xl uppercase neo-shadow sticker-rotate-1">DESKRIPSI</h2>
+                        <div class="text-xl md:text-2xl leading-relaxed space-y-8 max-w-4xl font-medium">
+                            <p>Unit <span class="font-black underline decoration-primary decoration-8">Urban Attic</span> adalah ruang unik di lantai atas dengan vibe urban yang kuat. Cocok untuk mahasiswa yang mencari suasana berbeda.</p>
+                            <p>Dilengkapi dengan dinding beton ekspos yang memberikan vibe industrial modern, sangat cocok untuk mahasiswa atau pekerja kreatif.</p>
+                            <p class="font-black italic text-secondary underline decoration-black decoration-4 text-3xl">Pribadi. Berperabot. Milik Anda.</p>
+                        </div>
+                    </section> -->
+                </div>
+
+                <!-- Sidebar -->
+                <div class="lg:col-span-4 space-y-10">
+                    <div class="bg-white border-4 border-black p-10 neo-shadow-lg">
+                        <h3 class="text-headline-md mb-8 border-b-4 border-black pb-4 italic">DETAIL UNIT</h3>
+                        <ul class="space-y-6">
+                            <li class="flex items-start gap-5">
+                                <span class="material-symbols-outlined text-secondary text-3xl">bed</span>
+                                <span class="font-black uppercase text-lg">Kasur Queen & Meja Belajar</span>
+                            </li>
+                            <li class="flex items-start gap-5">
+                                <span class="material-symbols-outlined text-secondary text-3xl">door_front</span>
+                                <span class="font-black uppercase text-lg">Nomor Kamar: 01</span>
+                            </li>
+                            <li class="flex items-start gap-5">
+                                <span class="material-symbols-outlined text-secondary text-3xl">square_foot</span>
+                                <span class="font-black uppercase text-lg">Ukuran: 3x4m</span>
+                            </li>
+                            <li class="flex items-start gap-5">
+                                <span class="material-symbols-outlined text-secondary text-3xl">location_on</span>
+                                <span class="font-black uppercase text-lg">Brontokusuman MG 3/312 Yk</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="border-4 border-black neo-shadow-lg h-80 overflow-hidden relative  transition-all cursor-pointer group">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d494.13783582522715!2d110.3724335!3d-7.8176781!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a574c7abe5ba5%3A0xb358acf3bc2dff6a!2sKos%20Putra%20Poelang%20Yogyakarta!5e0!3m2!1sen!2sid!4v1714210000000!5m2!1sen!2sid" 
+                            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Facilities -->
+            <section class="mt-24">
+                <h2 class="bg-white border-4 border-black inline-block px-10 py-4 font-black text-3xl uppercase neo-shadow mb-16 italic">FASILITAS KAMAR</h2>
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8" id="facilities-grid"></div>
+            </section>
+        </div>
+    </main>
+
+    <div id="footer-placeholder"></div>
+    <div id="mobile-nav-placeholder"></div>
+    <div id="fab-placeholder"></div>
+
+    <script src="assets/js/components.js"></script>
+    <script>
+        const roomId = '03';
+        let currentSlide = 0;
+        let images = [];
+
+        async function loadImages() {
+            const track = document.getElementById('carouselTrack');
+            const modalTrack = document.getElementById('modalTrack');
+            
+            for (let i = 1; i <= 5; i++) {
+                const imgPath = `assets/rooms/${roomId}/${i}.png`;
+                try {
+                    const res = await fetch(imgPath, { method: 'HEAD' });
+                    if (res.ok) {
+                        images.push(imgPath);
+                        
+                        // Preview Track
+                        const img = document.createElement('img');
+                        img.src = imgPath;
+                        img.className = 'w-full h-full object-cover flex-shrink-0 select-none';
+                        track.appendChild(img);
+
+                        // Modal Track
+                        const mImg = document.createElement('img');
+                        mImg.src = imgPath;
+                        mImg.className = 'w-full h-full object-contain flex-shrink-0 select-none';
+                        modalTrack.appendChild(mImg);
+                    }
+                } catch (e) {}
+            }
+            if (images.length === 0) {
+                const img = document.createElement('img');
+                img.src = 'https://via.placeholder.com/1200x800?text=No+Image';
+                img.className = 'w-full h-full object-cover flex-shrink-0';
+                track.appendChild(img);
+                images.push('fallback');
+            }
+            updateCarousel();
+        }
+
+        function updateCarousel() {
+            const track = document.getElementById('carouselTrack');
+            const counter = document.getElementById('carouselCounter');
+            track.style.transform = `translateX(-${currentSlide * 100}%)`;
+            counter.innerText = `${currentSlide + 1} / ${images.length}`;
+
+            // Sync Modal
+            const modalTrack = document.getElementById('modalTrack');
+            const modalCounter = document.getElementById('modalCounter');
+            modalTrack.style.transform = `translateX(-${currentSlide * 100}%)`;
+            modalCounter.innerText = `${currentSlide + 1} / ${images.length}`;
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % images.length;
+            updateCarousel();
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + images.length) % images.length;
+            updateCarousel();
+        }
+
+        // Modal Logic
+        function openModal() {
+            document.getElementById('photoModal').classList.remove('hidden');
+            document.getElementById('photoModal').classList.add('flex');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            document.getElementById('photoModal').classList.add('hidden');
+            document.getElementById('photoModal').classList.remove('flex');
+            document.body.style.overflow = 'auto';
+        }
+
+        function modalNext() { nextSlide(); }
+        function modalPrev() { prevSlide(); }
+
+        // Touch Swipe Support
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        function handleSwipe(track) {
+            const swipeThreshold = 50;
+            if (touchStartX - touchEndX > swipeThreshold) nextSlide();
+            if (touchEndX - touchStartX > swipeThreshold) prevSlide();
+        }
+
+        const track = document.getElementById('carouselTrack');
+        const mTrack = document.getElementById('modalTrack');
+
+        [track, mTrack].forEach(t => {
+            t.addEventListener('touchstart', e => { touchStartX = e.changedTouches[0].screenX; }, {passive: true});
+            t.addEventListener('touchend', e => { 
+                touchEndX = e.changedTouches[0].screenX;
+                handleSwipe();
+            }, {passive: true});
+        });
+
+        document.addEventListener('DOMContentLoaded', loadImages);
+    </script>
+</body>
+</html>

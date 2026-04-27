@@ -1,0 +1,14 @@
+# Temporary files
+scratch/
+.gemini/
+*.tmp
+.DS_Store
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# System files
+thumbs.db
+desktop.ini
