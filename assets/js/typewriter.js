@@ -8,15 +8,15 @@ function type() {
     const currentWord = words[wordIndex];
     const typewriterElement = document.getElementById('typewriter');
     if (!typewriterElement) return;
-    
+
     if (isDeleting) {
         charIndex--;
         // Varied deletion speed for more natural feel
-        typeSpeed = 40 + Math.random() * 60;
+        typeSpeed = 30 + Math.random() * 50;
     } else {
         charIndex++;
         // Varied typing speed for randomness
-        typeSpeed = 100 + Math.random() * 150;
+        typeSpeed = 50 + Math.random() * 50;
     }
 
     typewriterElement.textContent = currentWord.substring(0, charIndex);
@@ -26,7 +26,7 @@ function type() {
 
     if (!isDeleting && charIndex === currentWord.length) {
         isDeleting = true;
-        nextDelay = 2000; // Hold full word for 2 seconds
+        nextDelay = 1000; // Hold full word for 2 seconds
     } else if (isDeleting && charIndex === 0) {
         isDeleting = false;
         wordIndex = (wordIndex + 1) % words.length;
